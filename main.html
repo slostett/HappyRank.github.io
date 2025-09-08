@@ -7,8 +7,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
+            --primary: #4b9ff7;
+            --primary-dark: #0066cc;
             --secondary: #f59e0b;
             --accent: #10b981;
             --text-primary: #1f2937;
@@ -327,6 +327,162 @@
             margin: 0 auto;
         }
 
+        /* Graph Section */
+        .graph-section {
+            background: white;
+            padding: 3rem 0;
+        }
+
+        .graph-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .graph-item {
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .graph-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .graph-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .graph-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border: 2px dashed var(--primary);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .graph-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="%234b9ff7" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+        }
+
+        .graph-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            z-index: 1;
+        }
+
+        .graph-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .graph-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .comparison-chart {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .chart-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .chart-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .chart-subtitle {
+            opacity: 0.9;
+        }
+
+        .comparison-bars {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .bar-group {
+            text-align: center;
+        }
+
+        .bar-label {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .bar {
+            height: 120px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .bar-fill {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            border-radius: 10px 10px 0 0;
+            transition: height 2s ease;
+            display: flex;
+            align-items: end;
+            justify-content: center;
+            padding-bottom: 10px;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .bar-lottery .bar-fill {
+            height: 45%;
+        }
+
+        .bar-happyrank .bar-fill {
+            height: 78%;
+        }
+
+        .bar-value {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
         /* Features Section */
         .features {
             background: var(--bg-secondary);
@@ -382,6 +538,114 @@
         .feature-description {
             color: var(--text-secondary);
             line-height: 1.6;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .testimonial-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .testimonial-quote {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            position: relative;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .testimonial-highlight {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-title {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .testimonials-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .testimonials-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         /* Stats Section */
@@ -583,6 +847,14 @@
         .feature-card:nth-child(2) { transition-delay: 0.2s; }
         .feature-card:nth-child(3) { transition-delay: 0.3s; }
 
+        .graph-item:nth-child(1) { transition-delay: 0.1s; }
+        .graph-item:nth-child(2) { transition-delay: 0.2s; }
+        .graph-item:nth-child(3) { transition-delay: 0.3s; }
+
+        .testimonial-card:nth-child(1) { transition-delay: 0.1s; }
+        .testimonial-card:nth-child(2) { transition-delay: 0.2s; }
+        .testimonial-card:nth-child(3) { transition-delay: 0.3s; }
+
         .stat-item:nth-child(1) { transition-delay: 0.1s; }
         .stat-item:nth-child(2) { transition-delay: 0.2s; }
         .stat-item:nth-child(3) { transition-delay: 0.3s; }
@@ -642,6 +914,83 @@
                     <i class="fas fa-info-circle"></i>
                     Learn More
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Graph Section -->
+    <section class="section graph-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Proven Performance Data</h2>
+                <p class="section-subtitle">
+                    Our algorithm consistently outperforms lottery systems across multiple metrics
+                </p>
+            </div>
+            
+            <!-- Comparison Chart -->
+            <div class="comparison-chart">
+                <div class="chart-header">
+                    <h3 class="chart-title">Algorithm Performance Comparison</h3>
+                    <p class="chart-subtitle">Students receiving their top choice placement</p>
+                </div>
+                <div class="comparison-bars">
+                    <div class="bar-group">
+                        <div class="bar-label">Lottery System</div>
+                        <div class="bar bar-lottery">
+                            <div class="bar-fill">45%</div>
+                        </div>
+                        <div class="bar-value">Traditional random assignment</div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar-label">HappyRank Algorithm</div>
+                        <div class="bar bar-happyrank">
+                            <div class="bar-fill">78%</div>
+                        </div>
+                        <div class="bar-value">Preference-based optimization</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="graph-container">
+                <div class="graph-item">
+                    <div class="graph-placeholder">
+                        <i class="fas fa-chart-line graph-icon"></i>
+                        <p style="z-index: 1; font-weight: 600; color: var(--primary);">Student Satisfaction Trends</p>
+                    </div>
+                    <h3 class="graph-title">Optimization Performance Over Time</h3>
+                    <p class="graph-description">
+                        In lottery systems, optimization is based on filling top choices at random, 
+                        while HappyRank optimizes to fill top choices based on student preferences, 
+                        resulting in consistently higher satisfaction rates.
+                    </p>
+                </div>
+                
+                <div class="graph-item">
+                    <div class="graph-placeholder">
+                        <i class="fas fa-chart-bar graph-icon"></i>
+                        <p style="z-index: 1; font-weight: 600; color: var(--primary);">Preference Distribution</p>
+                    </div>
+                    <h3 class="graph-title">Top Choice Assignment Rates</h3>
+                    <p class="graph-description">
+                        More students receive their first choice with our algorithm. Though lottery-based 
+                        algorithms are often thought to maximize top choice assignments, our algorithm 
+                        consistently outperforms these systems.
+                    </p>
+                </div>
+                
+                <div class="graph-item">
+                    <div class="graph-placeholder">
+                        <i class="fas fa-chart-pie graph-icon"></i>
+                        <p style="z-index: 1; font-weight: 600; color: var(--primary);">Improvement Analysis</p>
+                    </div>
+                    <h3 class="graph-title">Student Placement Improvements</h3>
+                    <p class="graph-description">
+                        Over 100 trials of our algorithm on simulated medical school classes improved 
+                        ranking options for approximately 24 students (13%) who were moved from lower 
+                        choices to their top three preferences.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -716,6 +1065,69 @@
                         Founded and operated by current medical students who understand 
                         the real challenges of clinical rotation matching.
                     </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="testimonials-header">
+                <h2 class="testimonials-title">What Students Say</h2>
+                <p class="testimonials-subtitle">
+                    Real stories from our partner school students who experienced the difference our algorithm makes
+                </p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        "This [Match] will allow me to pursue the proper training and research connections 
+                        <span class="testimonial-highlight">that I need to pursue my desired residency programs</span>. 
+                        I ranked as a pod with a friend and it amazing to celebrate getting our top choice together."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Anonymous Student</div>
+                            <div class="author-title">Third Year Medical Student at UNC</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        "The matching process was a <span class="testimonial-highlight">deal-breaker for me</span>, 
+                        I have a kid that is starting school and landing a top choice was based on family wellbeing 
+                        rather than my own."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Anonymous Student</div>
+                            <div class="author-title">Third Year Medical Student at UNC</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        "My father was recently diagnosed with a terminal cancer, matching at my top choice campus 
+                        in my hometown will allow me <span class="testimonial-highlight">the rare opportunity to live close to home and spend time with my dad before uncertainty looms.</span>"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Anonymous Student</div>
+                            <div class="author-title">Third Year Medical Student at UNC</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -915,7 +1327,7 @@
         }, observerOptions);
 
         // Observe elements for animation
-        document.querySelectorAll('.feature-card, .stat-item, .process-step').forEach(el => {
+        document.querySelectorAll('.feature-card, .stat-item, .process-step, .graph-item, .testimonial-card').forEach(el => {
             observer.observe(el);
         });
 
@@ -950,10 +1362,6 @@
                 }
             });
         }, observerOptions);
-
-        document.querySelector('.stats').addEventListener('DOMContentLoaded', function() {
-            statsObserver.observe(document.querySelector('.stats'));
-        });
 
         // Initialize stats observer
         statsObserver.observe(document.querySelector('.stats'));
