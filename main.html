@@ -471,11 +471,19 @@
         }
 
         .bar-lottery .bar-fill {
-            height: 45%;
+            height: 73%;
         }
 
         .bar-happyrank .bar-fill {
-            height: 78%;
+            height: 89%;
+        }
+        
+        .bar-lottery-2 .bar-fill {
+            height: 59%;
+        }
+
+        .bar-happyrank-2 .bar-fill {
+            height: 70%;
         }
 
         .bar-value {
@@ -932,20 +940,44 @@
             <div class="comparison-chart">
                 <div class="chart-header">
                     <h3 class="chart-title">Algorithm Performance Comparison</h3>
-                    <p class="chart-subtitle">Students receiving their top choice placement</p>
+                    <p class="chart-subtitle">Students receiving a placement in their top three choices</p>
                 </div>
                 <div class="comparison-bars">
                     <div class="bar-group">
                         <div class="bar-label">Lottery System</div>
                         <div class="bar bar-lottery">
-                            <div class="bar-fill">45%</div>
+                            <div class="bar-fill">73%</div>
                         </div>
-                        <div class="bar-value">Traditional random assignment</div>
+                        <div class="bar-value">Before HappyRank</div>
                     </div>
                     <div class="bar-group">
                         <div class="bar-label">HappyRank Algorithm</div>
                         <div class="bar bar-happyrank">
-                            <div class="bar-fill">78%</div>
+                            <div class="bar-fill">89%</div>
+                        </div>
+                        <div class="bar-value">Preference-based optimization</div>
+                    </div>
+                </div>
+            </div>
+            
+                        <!-- Comparison Chart -->
+            <div class="comparison-chart">
+                <div class="chart-header">
+                    <h3 class="chart-title">Algorithm Performance Comparison</h3>
+                    <p class="chart-subtitle">Students receiving their top choice placement</p>
+                </div>
+                <div class="comparison-bars">
+                    <div class="bar-group">
+                        <div class="bar-label">Lottery System</div>
+                        <div class="bar bar-lottery-2">
+                            <div class="bar-fill">59%</div>
+                        </div>
+                        <div class="bar-value">Before HappyRank</div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar-label">HappyRank Algorithm</div>
+                        <div class="bar bar-happyrank-2">
+                            <div class="bar-fill">70%</div>
                         </div>
                         <div class="bar-value">Preference-based optimization</div>
                     </div>
@@ -956,13 +988,12 @@
                 <div class="graph-item">
                     <div class="graph-placeholder">
                         <i class="fas fa-chart-line graph-icon"></i>
-                        <p style="z-index: 1; font-weight: 600; color: var(--primary);">Student Satisfaction Trends</p>
+                        <p style="z-index: 1; font-weight: 600; color: var(--primary);">Success You Can Measure</p>
                     </div>
-                    <h3 class="graph-title">Optimization Performance Over Time</h3>
+                    <h3 class="graph-title">Algorithmically Driven Improvements</h3>
                     <p class="graph-description">
-                        In lottery systems, optimization is based on filling top choices at random, 
-                        while HappyRank optimizes to fill top choices based on student preferences, 
-                        resulting in consistently higher satisfaction rates.
+                        In lottery systems, optimization is based on filling top choices based on student preferences as they are drawn, 
+                        while HappyRank optimizes to fill top choices globally, maximizing happiness across students.
                     </p>
                 </div>
                 
@@ -986,9 +1017,7 @@
                     </div>
                     <h3 class="graph-title">Student Placement Improvements</h3>
                     <p class="graph-description">
-                        Over 100 trials of our algorithm on simulated medical school classes improved 
-                        ranking options for approximately 24 students (13%) who were moved from lower 
-                        choices to their top three preferences.
+                        On average, 24 students per matched are moved to a top three campus from a lower ranked choice. This represents 13% of students over all 3000+ students matched.
                     </p>
                 </div>
             </div>
@@ -1012,8 +1041,7 @@
                     </div>
                     <h3 class="feature-title">Advanced Algorithm</h3>
                     <p class="feature-description">
-                        Our patented optimization algorithm considers student preferences in a fair manner, 
-                        significantly outperforming random lottery systems.
+                        Our patented optimization algorithm weighs student preferences and maximizes the sum of happiness globally. This ensures a mathematically optimal solution which distributes students across campuses fairly.
                     </p>
                 </div>
                 <div class="feature-card">
@@ -1108,7 +1136,7 @@
                         </div>
                         <div class="author-info">
                             <div class="author-name">Anonymous Student</div>
-                            <div class="author-title">Third Year Medical Student at UNC</div>
+                            <div class="author-title">Fourth Year Pharmacy Student at UNC</div>
                         </div>
                     </div>
                 </div>
